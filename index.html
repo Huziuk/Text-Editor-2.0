@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Editor</title>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body style="background: url();">
+    <main>
+        <!-- ! ==== Header  ==== -->
+        <header class="header">
+            <div class="container">
+                <!-- ! ==== Main Header ==== -->
+                <form name="headerForm" class="header__form">
+                    <div class="form_wrapper">
+                        <!-- Редагування -->
+                        <input type="button" name="editBtn" class="header__edit header__edit_disabled" title="Edit" disabled>
+                        <!-- Параметри стилю -->
+                        <input type="button" name="boldTextBtn" class="header__text_style" value="B" title="Bold Text">
+                        <input type="button" name="cursiveTextBtn" class="header__text_style" value="I" title="Cursive Text">
+                        <input type="button" name="underlineTextBtn" class="header__text_style" value="U" title="Underline Text">
+                        <input type="button" name="lineThroughTextBtn" class="header__text_style" value="S" title="Line Thriugh Text">
+                        <!-- Параметри вирівнювання -->
+                        <input type="button" name="leftAlignBtn" title="Left Align Text">
+                        <input type="button" name="centerAlignBtn" title="Center Align Text">
+                        <input type="button" name="rightAlignBtn" title="Right Align Text">
+                        <!-- Параметри шрифту -->
+                        <input type="button" name="fontFamilyBtn" value="A" title="Font Family">
+                        <input type="button" name="fontSizeBtn" value="T" title="Font Size">
+                        <input type="button" name="textColorBtn" title="Text Color">
+                        <!-- Параметри фону -->
+                        <input type="button" name="backImgBtn" title="Background Color/Image">
+                        <!-- Логінування -->
+                        <input type="button" name="signinBtn" class="signin_btn">
+                        <input type="button" name="signoutBtn" class="signout_btn">
+                        <!-- ? ====  Меню з параметрами  ==== -->
+                        <!-- ! ==== Модальне вікно для вибору шрифту ==== -->
+                        <div class="font_family_block">
+                            <div class="family_wrapper">
+                                <span class="family">Arial</span>
+                                <span class="family">Candara</span>
+                                <span class="family">Century</span>
+                                <span class="family">Comic Sans MS</span>
+                                <span class="family">Corbel</span>
+                                <span class="family">Garamond</span>
+                                <span class="family">Georgia</span>
+                                <span class="family">Impact</span>
+                                <span class="family">Lucida Console</span>
+                                <span class="family">Monospace</span>
+                                <span class="family">Microsoft Sans Serif</span>
+                                <span class="family">Mistral</span>
+                                <span class="family">Segoe Print</span>
+                                <span class="family">Segoe Script</span>
+                                <span class="family">Tahoma</span>
+                                <span class="family">Times New Roman</span>
+                                <span class="family">Trebuchet MS</span>
+                                <span class="family">Verdana</span>
+                            </div>
+                        </div>
+                        <!-- ? ==== Модальне вікно для вибору шрифту ==== -->
+                        <!-- ! ==== Модальне вікно для вибору розміру шрифту ==== -->
+                        <div class="font_size_block">
+                            <span class="size">12px</span>
+                            <span class="size">14px</span>
+                            <span class="size">18px</span>
+                            <span class="size">20px</span>
+                            <span class="size">22px</span>
+                            <span class="size">25px</span>
+                            <span class="size">30px</span>
+                        </div>
+                    </div>
+                </form>
+                <!-- ? ==== Main Header ==== -->
+
+                <!-- ! ==== Edit Header ==== -->
+                <form name="editHeaderForm" class="header__edit_form">
+                    <div class="form_wrapper">
+                        <input type="button" name="save" class="header__edit_input" title="Save">
+                        <input type="button" name="createTable" class="header__edit_input" title="Create Table">
+                        <input type="button" name="createOl" class="header__edit_input" title="Create Ol">
+                        <input type="button" name="createUl" class="header__edit_input" title="Create Ul">
+                    </div>
+                </form>
+                <!-- ? ==== Edit Header ==== -->
+            </div>
+        </header>
+        <!-- ? ==== Header  ==== -->
+
+        <div class="modalBackgeound"></div> <!-- ? Фон для модальних вікон-->
+
+        <!-- ! ====  Модальне вікно для вибору кольору тексту ==== -->
+        <div class="choose_text_color">
+            <div class="choose_color__title title">
+                Choose text color
+                <input type="button" class="cancel_btn" value="">
+            </div>
+            <div class="text_color_line"></div>
+            <div class="text_colors_block">
+                <div class="text_color" style="background-color: #0AA898"></div>
+                <div class="text_color" style="background-color: #088F82"></div>
+                <div class="text_color" style="background-color: #1FB56C"></div>
+                <div class="text_color" style="background-color: #1A9A5D"></div>
+                <div class="text_color" style="background-color: #2790DD"></div>
+                <div class="text_color" style="background-color: #1F79B9"></div>
+                <div class="text_color" style="background-color: #9A63B4"></div>
+                <div class="text_color" style="background-color: #8F50AC"></div>
+                <div class="text_color" style="background-color: #30475D"></div>
+                <div class="text_color" style="background-color: #283D4E"></div>
+                <div class="text_color" style="background-color: #F5BC06"></div>
+                <div class="text_color" style="background-color: #F89A0A"></div>
+                <div class="text_color" style="background-color: #ED811B"></div>
+                <div class="text_color" style="background-color: #DB5B00"></div>
+                <div class="text_color" style="background-color: #F25938"></div>
+                <div class="text_color" style="background-color: #C84425"></div>
+                <div class="text_color" style="background-color: #EAEEEF"></div>
+                <div class="text_color" style="background-color: #BAC1C4"></div>
+                <div class="text_color" style="background-color: #8FA1A2"></div>
+                <div class="text_color" style="background-color: #7B898A"></div>
+                <div class="text_color" style="background-color: #000000"></div>
+            </div>
+        </div>
+        <!-- ? ==== Модальне вікно для вибору кольору тексту ==== -->
+
+        <!-- ! ==== Модальне вікно для вибору фону ==== -->
+        <div class="choose_background">
+            <div class="choose_background__title title">
+                Choose background color of image
+                <input type="button" class="cancel_btn" value="">
+            </div>
+            <div class="text_color_line text_color_line_2"></div>
+            <form class="tabs_form">
+                <input type="button" value="Colors" name="backgroundBtnColor" class="background_btn background_btn_color background_btn--active">
+                <input type="button" value="Images" name="backgroundBtnImage" class="background_btn background_btn_images">
+                <input type="button" value="Files" name="backgroundBtnFiles" class="background_btn background_btn_files">
+            </form>
+            <div class="background_colors_block">
+                <div class="background_color" style="background-color: #0AA898"></div>
+                <div class="background_color" style="background-color: #088F82"></div>
+                <div class="background_color" style="background-color: #1FB56C"></div>
+                <div class="background_color" style="background-color: #1A9A5D"></div>
+                <div class="background_color" style="background-color: #2790DD"></div>
+                <div class="background_color" style="background-color: #1F79B9"></div>
+                <div class="background_color" style="background-color: #9A63B4"></div>
+                <div class="background_color" style="background-color: #8F50AC"></div>
+                <div class="background_color" style="background-color: #30475D"></div>
+                <div class="background_color" style="background-color: #283D4E"></div>
+                <div class="background_color" style="background-color: #F5BC06"></div>
+                <div class="background_color" style="background-color: #F89A0A"></div>
+                <div class="background_color" style="background-color: #ED811B"></div>
+                <div class="background_color" style="background-color: #DB5B00"></div>
+                <div class="background_color" style="background-color: #F25938"></div>
+                <div class="background_color" style="background-color: #C84425"></div>
+                <div class="background_color" style="background-color: #EAEEEF"></div>
+                <div class="background_color" style="background-color: #BAC1C4"></div>
+                <div class="background_color" style="background-color: #8FA1A2"></div>
+                <div class="background_color" style="background-color: #7B898A"></div>
+                <div class="background_color" style="background-color: #000000"></div>
+            
+            
+            </div>
+            <div class="background_images_block_wrapper">
+                <div class="background_images_block">
+                    <div class="images" style="background-image: url(./images/Nature/1.jpg);"></div>
+                    <div class="images" style="background-image: url(./images/Nature/2.jpg);"></div>
+                    <div class="images" style="background-image: url(./images/Nature/3.jpg);"></div>
+                    <div class="images" style="background-image: url(./images/Nature/4.jpg);"></div>
+                    <div class="images" style="background-image: url(./images/Nature/5.jpg);"></div>
+                    <div class="images" style="background-image: url(./images/Nature/6.jpg);"></div>
+                    <div class="images" style="background-image: url(./images/Nature/7.jpg);"></div>
+                    <div class="images" style="background-image: url(./images/Nature/8.jpg);"></div>
+                    <div class="images" style="background-image: url(./images/Nature/9.jpg);"></div>
+                </div>
+            </div>
+            <div class="background_files_block">
+                    <input type="file" name="chooseFile" class="choose_file" id="chooseFile">
+                    <label for="chooseFile" class="choose_file_label">
+                        <div class="choose_file_input">Choose file...</div>
+                        <div class="choose_file_btn">Browse</div>
+                    </label>
+            </div>
+        </div>
+        <!-- ? ==== Модальне вікно для вибору фону ====-->
+
+        <!-- ! ==== Модальне вікно для створення таблиці ====-->
+        <div class="create_table">
+            <div class="title">
+                Create table
+                <input type="button" class="cancel_btn" value="">
+            </div>
+            <div class="signin__line create_table_line"></div>
+            <form name="createTable" class="create_table_form">
+                <div class="create_table__items">
+                    <span class="create__input_title">Count TR:</span>
+                    <input type="text" name="countTR" class="create_table__item" placeholder="Type here...">
+                    <span class="create__input_title">Width TD:</span>
+                    <input type="text" name="widthTD" class="create_table__item" placeholder="Type here...">
+                    <span class="create__input_title">Width of border:</span>
+                    <input type="text" name="widthOfBorder" class="create_table__item" placeholder="Type here...">
+                    <span class="ivalid_value_table">invalid value</span>
+                    <input type="button" name="tableReset" value="Reset" class="create_table__reset">
+                </div>
+                <div class="create_table__items">
+                    <span class="create__input_title">Count TD:</span>
+                    <input type="text" name="countTD" class="create_table__item" placeholder="Type here...">
+                    <span class="create__input_title">Height TD:</span>
+                    <input type="text" name="heightTD" class="create_table__item" placeholder="Type here...">
+                    <div class="create__choose_border">
+                        <div class="create__choose_inner">
+                            <span class="create__input_title">Style of border:</span>
+                            <select name="styleOfBorder" class="create_table__item">
+                                <option value="choose style">choose style</option>
+                                <option value="dotted">dotted </option>
+                                <option value="dashed">dashed </option>
+                                <option value="solid">solid </option>
+                                <option value="double">double </option>
+                                <option value="groove">groove </option>
+                                <option value="ridge">ridge </option>
+                                <option value="inset">inset </option>
+                                <option value="outset">outset </option>
+                            </select>
+                        </div>
+                        <div class="create__choose_inner">
+                            <span class="create__input_title">Color of border:</span>
+                            <select name="colorOfBorder" class="create_table__item">
+                                <option value="choose style">choose color</option>
+                                <option value="black">black </option>
+                                <option value="red">red </option>
+                                <option value="green">green </option>
+                                <option value="blue">blue </option>
+                                <option value="yellow">yellow </option>
+                                <option value="gray">gray </option>
+                                <option value="pink">pink </option>
+                            </select>
+                        </div>
+                    </div>
+                    <input type="button" name="tableCreate" value="Create table" class="create_table__create">
+                </div>
+            </form>
+        </div>
+        <!-- ? ==== Модальне вікно для створення таблиці ====-->
+
+        <!-- ! ==== Модальні вікна для створення списків ====-->
+        <!-- ==== OL ==== -->
+        <div class="create_ol">
+            <div class="title">
+                Create OL
+                <input type="button" class="cancel_btn" value="">
+            </div>
+            <div class="signin__line create_ol_line"></div>
+            <form name="createOlForm" class="create_ol_form">
+                <span class="create__input_title">Count li item:</span>
+                <input type="text" name="countOL" class="create_table__item " placeholder="Type here...">
+                <span class="create__input_title">Type mark of list:</span>
+                <select name="typeOlMark" class="type_ol__mark create_table__item">
+                    <option value="choose style">choose OL type mark</option>
+                    <option value="1">1</option>
+                    <option value="I">I</option>
+                    <option value="i">i</option>
+                    <option value="A">A</option>
+                    <option value="a">a</option>
+                </select>
+                <span class="ivalid_value_list">invalid value</span>
+                <div class="create_ol__btns">
+                    <input type="button" name="resetOl" value="Reset" class="reset_ol_btn">
+                    <input type="button" name="createOl" value="Create list" class="create_ol_btn">
+                </div>
+            </form>
+        </div>
+
+        <!-- ==== UL ==== -->
+        <div class="create_ul">
+            <div class="title">
+                Create UL
+                <input type="button" class="cancel_btn" value="">
+            </div>
+            <div class="signin__line create_ol_line"></div>
+            <form name="createUlForm" class="create_ul_form">
+                <span class="create__input_title">Count li item:</span>
+                <input type="text" name="countUL" class="create_table__item " placeholder="Type here...">
+                <span class="create__input_title">Type mark of list:</span>
+                <select name="typeUlMark" class="type_ul__mark create_table__item">
+                    <option value="choose style">choose UL type mark</option>
+                    <option value="circle">circle</option>
+                    <option value="disc">disc</option>
+                    <option value="squae">squae</option>
+                </select>
+                <span class="ivalid_value_list">invalid value</span>
+                <div class="create_ol__btns">
+                    <input type="button" name="resetUl" value="Reset" class="reset_ul_btn">
+                    <input type="button" name="createUl" value="Create list" class="create_ul_btn">
+                </div>
+            </form>
+        </div>
+        <!-- ? ==== Модальні вікна для створення списків ====-->
+        
+        <!-- ! ==== Sign In Block  ==== -->
+        <div class="signin">
+            <div class="signin__title">
+                Sign In
+                <input type="button" class="cancel_btn signin__cancel_btn" value="">
+            </div>
+            <div class="signin__line"></div>
+            <form name="signInForm" class="signin_form">
+                <input type="text" name="login" placeholder="Login here..." class="singin_form__input">
+                <input type="password" name="password" placeholder="Password here..." class="singin_form__input">
+                <span class="singin__message">Value is empty</span>
+                <input type="submit" value="Sign in" class="singin_form__input">
+            </form>
+        </div>
+        <!-- ? ==== Sign In Block  ====->
+
+        <!-- ! ==== Sing Out  ==== -->
+        <div class="singout">
+            <div class="singout__btns">
+                <input type="button" value="Cancel" class="singout__cancel cancel_btn">
+                <input type="button" value="Sing out" class="singout__btn">
+            </div>
+        </div>
+        <!-- ? ==== Sing Out  ==== -->
+
+        <!-- ! ====  Textarea ==== -->
+        <textarea class="edit_textarea" cols="30" rows="10" >
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima necessitatibus odit corrupti voluptas est deserunt?</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima necessitatibus odit corrupti voluptas est deserunt?</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima necessitatibus odit corrupti voluptas est deserunt?</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima necessitatibus odit corrupti voluptas est deserunt?</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima necessitatibus odit corrupti voluptas est deserunt?</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima necessitatibus odit corrupti voluptas est deserunt?</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima necessitatibus odit corrupti voluptas est deserunt?</p>
+        </textarea>
+        <!-- ? ====  Textarea ==== -->
+
+        <!-- ! Редагуємий блок-->
+        <div class="text_block">
+        </div>
+        <!-- ? Редагуємий блок-->
+    </main>
+    <script src="./js/main.js"></script>
+</body>
+</html>
