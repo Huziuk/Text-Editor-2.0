@@ -104,7 +104,10 @@ table{
     line-height: 35px;
 }
 input[name = boldTextBtn]{border-radius: 5px 0px 0px 5px;}
-input[name = cursiveTextBtn]{font-style: italic;}
+input[name = cursiveTextBtn]{
+    font-style: italic;
+    border-radius: 0px;
+}
 input[name = underlineTextBtn]{text-decoration: underline;}
 input[name = lineThroughTextBtn]{
     margin-right: 30px;
