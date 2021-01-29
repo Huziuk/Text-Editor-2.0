@@ -139,10 +139,12 @@ input[name=boldTextBtn] {
 
 input[name=cursiveTextBtn] {
   font-style: italic;
+  border-radius: 0px;
 }
 
 input[name=underlineTextBtn] {
   text-decoration: underline;
+  border-radius: 0px;
 }
 
 input[name=lineThroughTextBtn] {
@@ -160,6 +162,7 @@ input[name=leftAlignBtn] {
 }
 
 input[name=centerAlignBtn] {
+  border-radius: 0px;
   background-image: url(../images/svg/align-center.svg);
   background-position: center;
   background-size: auto;
@@ -184,10 +187,12 @@ input[name=fontFamilyBtn] {
 }
 
 input[name=fontSizeBtn] {
+  border-radius: 0px;
   background: url(../images/svg/arrow.svg) no-repeat 29px, #E0E0E0 url(../images/svg/arow2.svg) no-repeat 22px 13px;
 }
 
 input[name=textColorBtn] {
+  border-radius: 0px;
   background-image: url(../images/svg/paint-board.svg);
   background-position: center;
   background-size: auto;

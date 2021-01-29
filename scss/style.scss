@@ -108,7 +108,10 @@ input[name = cursiveTextBtn]{
     font-style: italic;
     border-radius: 0px;
 }
-input[name = underlineTextBtn]{text-decoration: underline;}
+input[name = underlineTextBtn]{
+    text-decoration: underline;
+    border-radius: 0px;
+}
 input[name = lineThroughTextBtn]{
     margin-right: 30px;
     border-radius: 0px 5px 5px 0px;
@@ -119,7 +122,10 @@ input[name = leftAlignBtn]{
     border-radius: 5px 0px 0px 5px;
     @include backImg(url(../images/svg/align-left.svg))
 }
-input[name = centerAlignBtn]{@include backImg(url(../images/svg/align-center.svg))}
+input[name = centerAlignBtn]{
+    border-radius: 0px;
+    @include backImg(url(../images/svg/align-center.svg))
+}
 input[name = rightAlignBtn]{
     margin-right: 30px;
     border-radius: 0px 5px 5px 0px;
@@ -131,10 +137,14 @@ input[name = fontFamilyBtn]{
     @include backImg(url(../images/svg/arrow.svg), 29px)
 }
 input[name = fontSizeBtn]{
+    border-radius: 0px;
     background: url(../images/svg/arrow.svg) no-repeat 29px,
                 $btn_color url(../images/svg/arow2.svg) no-repeat 22px 13px;
 }
-input[name = textColorBtn]{@include backImg(url(../images/svg/paint-board.svg))}
+input[name = textColorBtn]{
+    border-radius: 0px;
+    @include backImg(url(../images/svg/paint-board.svg))
+}
 input[name = backImgBtn]{
     margin-right: 30px;
     border-radius: 0px 5px 5px 0px;
